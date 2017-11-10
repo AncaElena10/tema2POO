@@ -1,0 +1,37 @@
+Moisa Anca-Elena
+321 CA
+TEMA 2 POO - MASINA ENIGMA
+
+Problema este structurata pe 5 clase: Main, Enigma, Plugboard, Reflector, Rotor. 
+Am ales aceasta ierarhie de clase pentru ca mi s-a parut mai usor de urmarit.
+Am o clasa mare Enigma in care folosesc elemente din celelalte clase, transmise
+prin parametri.
+
+Clasa Main
+Aici am realizat citirile din fisier, fiecare linie salvata intr-o variabila si
+trimisa ca parametru la celelalte clase.
+
+Clasa Enigma
+Aici realizez in mare toate operatiile(rotatia rotoarelor, maparea unei litere, 
+drumul de la keyboard la lightboard), si tot aici afisez output-ul.
+Pentru rotatie am un array de rotoare. Aceasta functioneaza astfel: rotorul 
+din dreapta se misca tot timpul. Cand acesta isi atinge notch-ul, creste rotorul
+din mijloc. Rotorul din mijloc este miscat doar de cel din dreapta. Cand isi
+atinge notch-ul - 1, memorez intr-o variabila, si nu fac nimic pe moment.
+Data viitoare, creste rotorul din mijloc si cel din stanga. 
+Pentru drumul de la keyboard la lightboard se calculeaza offset rotor, se aduna cu 
+litera. Litera rezultata se mapeaza, se scade offset-ul rotorului si rezulta o noua 
+litera. Pentru drumul reflector->rotor->plugboard->lightboard, am aplicat aceleasi
+metode, dar am folosit maparea inversa realizata in clasa Rotor.
+
+Clasa Plugboard
+Aici fac interschimbul intre doua litere primite de la tastatura, salvez noul
+alfabet format si construiesc maparea pentru un caracter.
+
+Clasa Rotor
+Contine cele 8 tipuri de rotoare impreuna cu maparea si notch-ul/notch-urile proprii.
+Tot aici am realizat maparea si maparea inversa, pe care le-am trimis in clasa
+Enigma.
+
+Clasa Reflector
+Contine fiecare reflector, cat si maparile acestuia.
